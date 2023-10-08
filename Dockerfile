@@ -9,7 +9,7 @@ RUN npm install -g npm
 ### BUILD IMAGE
 FROM base AS builder
 
-WORKDIR /codechat
+WORKDIR /joindeveloper
 
 COPY ./package.json .
 
@@ -24,15 +24,15 @@ RUN npm run build
 ### RELEASE IMAGE
 FROM base AS release
 
-WORKDIR /codechat
-COPY --from=builder /codechat/package*.json .
+WORKDIR /joindeveloper
+COPY --from=builder /joindeveloper/package*.json .
 RUN npm ci --omit=dev
 
 LABEL version="1.2.8" description="Api to control whatsapp features through http requests." 
 LABEL maintainer="Cleber Wilson" git="https://github.com/jrCleber"
-LABEL contact="contato@codechat.dev" whatsapp="https://chat.whatsapp.com/HyO8X8K0bAo0bfaeW8bhY5" telegram="https://t.me/codechatBR"
+LABEL contact="contato@joindeveloper.dev" whatsapp="https://chat.whatsapp.com/HyO8X8K0bAo0bfaeW8bhY5" telegram="https://t.me/joindeveloperBR"
 
-COPY --from=builder /codechat/dist .
+COPY --from=builder /joindeveloper/dist .
 
 COPY ./tsconfig.json .
 COPY ./src ./src
@@ -57,7 +57,7 @@ ENV STORE_CHATS=false
 
 ENV DATABASE_ENABLED=false
 ENV DATABASE_CONNECTION_URI='mongodb://<USER>:<PASSWORD>@<HOST>/?authSource=admin&readPreference=primary&ssl=false&directConnection=true'
-ENV DATABASE_CONNECTION_DB_PREFIX_NAME='codechat'
+ENV DATABASE_CONNECTION_DB_PREFIX_NAME='joindeveloper'
 ENV DATABASE_SAVE_DATA_INSTANCE=false
 ENV DATABASE_SAVE_DATA_OLD_MESSAGE=false
 ENV DATABASE_SAVE_DATA_NEW_MESSAGE=true
@@ -67,7 +67,7 @@ ENV DATABASE_SAVE_DATA_CHATS=true
 
 ENV REDIS_ENABLED=false
 ENV REDIS_URI='redis://<HOST>/1'
-ENV REDIS_PREFIX_KEY='codechat'
+ENV REDIS_PREFIX_KEY='joindeveloper'
 
 ENV WEBHOOK_GLOBAL_URL='<url>'
 ENV WEBHOOK_GLOBAL_ENABLED=false
@@ -90,7 +90,7 @@ ENV WEBHOOK_EVENTS_GROUPS_UPDATE=false
 ENV WEBHOOK_EVENTS_GROUP_PARTICIPANTS_UPDATE=false
 ENV WEBHOOK_EVENTS_NEW_JWT_TOKEN=false
 
-ENV CONFIG_SESSION_PHONE_CLIENT='CodeChat'
+ENV CONFIG_SESSION_PHONE_CLIENT='joindeveloper'
 ENV CONFIG_SESSION_PHONE_NAME='Chrome'
 
 ENV QRCODE_LIMIT=6

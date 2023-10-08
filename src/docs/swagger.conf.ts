@@ -4,7 +4,7 @@
  * │ @filename main.ts                                                            │
  * │ Developed by: Cleber Wilson                                                  │
  * │ Creation date: Aug 13, 2023                                                  │
- * │ Contact: contato@codechat.dev                                                │
+ * │ Contact: contato@joindeveloper.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
  * │ @copyright © Cleber Wilson 2022. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │
@@ -44,7 +44,7 @@ export const swaggerRouter = router.use('/docs', swaggerUi.serve).get(
   '/docs',
   swaggerUi.setup(document, {
     customCssUrl: '/css/dark-theme-swagger.css',
-    customSiteTitle: 'CodeChat - WhatsApp API',
+    customSiteTitle: 'joindeveloper - WhatsApp API',
     customfavIcon: '/images/logo.svg',
   }),
 );

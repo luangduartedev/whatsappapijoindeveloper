@@ -4,7 +4,7 @@
  * │ @filename logger.config.ts                                                   │
  * │ Developed by: Cleber Wilson                                                  │
  * │ Creation date: Nov 27, 2022                                                  │
- * │ Contact: contato@codechat.dev                                                │
+ * │ Contact: contato@joindeveloper.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
  * │ @copyright © Cleber Wilson 2022. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │
@@ -110,7 +110,7 @@ export class Logger {
       if (configService.get<Log>('LOG').COLOR) {
         console.log(
           /*Command.UNDERSCORE +*/ Command.BRIGHT + Level[type],
-          '[CodeChat]',
+          '[joindeveloper]',
           Command.BRIGHT + Color[type],
           process.pid.toString(),
           Command.RESET,
@@ -132,7 +132,7 @@ export class Logger {
         typeValue === 'object' ? console.log(/*Level.DARK,*/ value, '\n') : '';
       } else {
         console.log(
-          '[CodeChat]',
+          '[joindeveloper]',
           process.pid.toString(),
           '-',
           `${formatDateLog(Date.now())}  `,

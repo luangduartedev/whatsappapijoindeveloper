@@ -4,7 +4,7 @@
  * │ @filename use-multi-file-auth-state-redis-db.ts                              │
  * │ Developed by: Cleber Wilson                                                  │
  * │ Creation date: Apr 09, 2023                                                  │
- * │ Contact: contato@codechat.dev                                                │
+ * │ Contact: contato@joindeveloper.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
  * │ @copyright © Cleber Wilson 2023. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │

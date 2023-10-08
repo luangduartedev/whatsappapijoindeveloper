@@ -3,7 +3,7 @@
 
 <div align="center">
 
-[![Telegram Group](https://img.shields.io/badge/Group-Telegram-%2333C1FF)](https://t.me/codechatBR)
+[![Telegram Group](https://img.shields.io/badge/Group-Telegram-%2333C1FF)](https://t.me/joindeveloperBR)
 [![Whatsapp Group](https://img.shields.io/badge/Group-WhatsApp-%2322BC18)](https://chat.whatsapp.com/HyO8X8K0bAo0bfaeW8bhY5)
 [![License](https://img.shields.io/badge/license-GPL--3.0-orange)](./LICENSE)
 [![Support](https://img.shields.io/badge/Buy%20me-coffe-orange)](https://app.picpay.com/user/cleber.wilson.oliveira)
@@ -18,11 +18,11 @@
 This code is an implementation of [Baileys](https://github.com/WhiskeySockets/Baileys), as a RestFull Api service, which controls whatsapp functions.</br>
 With this one you can create multiservice chats, service bots or any other system that uses whatsapp. With this code you don't need to know javascript for nodejs , just start the server and make the language requests that you feel most comfortable with.
 
-## [Node n8n](https://github.com/jrCleber/n8n-codechat-wapi)
+## [Node n8n](https://github.com/jrCleber/n8n-joindeveloper-wapi)
 
 <div align="center">
-  <a href="https://github.com/jrCleber/n8n-codechat-wapi" target="_blank" rel="noopener noreferrer">
-    <img src="./public/images/n8n-codechat-wapi.png" style="width: 50% !important;">
+  <a href="https://github.com/jrCleber/n8n-joindeveloper-wapi" target="_blank" rel="noopener noreferrer">
+    <img src="./public/images/n8n-joindeveloper-wapi.png" style="width: 50% !important;">
   </a>
 </div>
 
@@ -103,7 +103,7 @@ yarn start
 yarn start:prod
 
 # pm2
-pm2 start 'yarn start:prod' --name ApiCodechat
+pm2 start 'yarn start:prod' --name Apijoindeveloper
 ```
 
 ## Swagger - OpenAPI 3.0.0
@@ -139,7 +139,7 @@ Content-Type: application/json
 apikey: t8OOEeISKzpmc3jjcMqBWYSaJH2PIxns
 
 {
-  "instanceName": "codechat"
+  "instanceName": "joindeveloper"
 }
 ```
 ##### cURL
@@ -149,7 +149,7 @@ curl --location --request POST 'http://localhost:8080/instance/create' \
 --header 'Content-Type: application/json' \
 --header 'apikey: t8OOEeISKzpmc3jjcMqBWYSaJH2PIxns' \
 --data-raw '{
-  "instanceName": "codechat"
+  "instanceName": "joindeveloper"
 }'
 ```
 ### Response
@@ -157,7 +157,7 @@ curl --location --request POST 'http://localhost:8080/instance/create' \
 ```ts
 {
   "instance": {
-    "instanceName": "codechat",
+    "instanceName": "joindeveloper",
     "status": "created"
   },
   "hash": {
@@ -173,23 +173,23 @@ curl --location --request POST 'http://localhost:8080/instance/create' \
 ##### HTTP
 
 ```http
-GET /instance/connect/codechat HTTP/1.1
+GET /instance/connect/joindeveloper HTTP/1.1
 Host: localhost:8080
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. [...]
 ```
 ```http
-GET /instance/connect/codechat HTTP/1.1
+GET /instance/connect/joindeveloper HTTP/1.1
 Host: localhost:8080
 apikey: 88513847-1B0E-4188-8D76-4A2750C9B6C3
 ```
 ##### cURL
 
 ```bash
-curl --location --request GET 'http://localhost:8080/instance/connect/codechat' \
+curl --location --request GET 'http://localhost:8080/instance/connect/joindeveloper' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. [...]'
 ```
 ```bash
-curl --location --request GET 'http://localhost:8080/instance/connect/codechat' \
+curl --location --request GET 'http://localhost:8080/instance/connect/joindeveloper' \
 --header 'apikey: 88513847-1B0E-4188-8D76-4A2750C9B6C3'
 ```
 
@@ -206,7 +206,7 @@ curl --location --request GET 'http://localhost:8080/instance/connect/codechat' 
   - [docker run](./docker.sh)
   - [docker-compose](./docker-compose.yml)
   - [env for docker](./Docker/.env)
-  - [DockerHub-codechat/api](https://hub.docker.com/r/codechat/api)
+  - [DockerHub-joindeveloper/api](https://hub.docker.com/r/joindeveloper/api)
 
 After building the application, in the same directory as the files above, run the following command:
 ```sh
@@ -230,7 +230,7 @@ docker-compose up
 
 ## Postman collections
   - [Postman Json](./postman.json)
-  - [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/codechat/workspace/codechat-whatsapp-api/api/fbe06c7b-7647-4c71-81ee-841f5b2e90d8?action=share&creator=14064846)
+  - [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/joindeveloper/workspace/joindeveloper-whatsapp-api/api/fbe06c7b-7647-4c71-81ee-841f5b2e90d8?action=share&creator=14064846)
 
 ## Webhook Events
 

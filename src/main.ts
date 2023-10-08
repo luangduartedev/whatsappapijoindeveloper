@@ -4,7 +4,7 @@
  * │ @filename main.ts                                                            │
  * │ Developed by: Cleber Wilson                                                  │
  * │ Creation date: Nov 27, 2022                                                  │
- * │ Contact: contato@codechat.dev                                                │
+ * │ Contact: contato@joindeveloper.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
  * │ @copyright © Cleber Wilson 2022. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │
@@ -81,7 +81,7 @@ function bootstrap() {
       secret: configService.get<string>('SESSION_SECRET'),
       resave: false,
       saveUninitialized: false,
-      name: 'codechat.api.sid',
+      name: 'joindeveloper.api.sid',
     }),
   );
 

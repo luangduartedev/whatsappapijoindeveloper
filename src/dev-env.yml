@@ -4,7 +4,7 @@
 #  │ Developed by: Cleber Wilson                                                  │
 #  │ File name: dev-env.yml                                                       │
 #  │ Creation date: Nov 27, 2022                                                  │
-#  │ Contact: contato@codechat.dev                                                │
+#  │ Contact: contato@joindeveloper.dev                                                │
 #  ├──────────────────────────────────────────────────────────────────────────────┤
 #  │ @copyright © Cleber Wilson 2022. All rights reserved.                        │
 #  │ Licensed under the Apache License, Version 2.0                               │
@@ -86,7 +86,7 @@ DATABASE:
   ENABLED: false
   CONNECTION:
     URI: 'mongodb://<USER>:<PASSWORD>@<HOST>/?authSource=admin&readPreference=primary&ssl=false&directConnection=true'
-    DB_PREFIX_NAME: codechat
+    DB_PREFIX_NAME: joindeveloper
   # Choose the data you want to save in the application's database or store
   SAVE_DATA:
     INSTANCE: false
@@ -99,7 +99,7 @@ DATABASE:
 REDIS:
   ENABLED: false
   URI: 'redis://<HOST>'
-  PREFIX_KEY: 'codechat'
+  PREFIX_KEY: 'joindeveloper'
 
 # Webhook Settings
 WEBHOOK:
@@ -132,7 +132,7 @@ WEBHOOK:
 
 CONFIG_SESSION_PHONE:
   # Name that will be displayed on smartphone connection
-  CLIENT: CodeChat
+  CLIENT: joindeveloper
   NAME: Chrome # firefox | edge | opera | safari
 
 # Set qrcode display limit

@@ -4,7 +4,7 @@
   # │ @filename main.ts                                                            │
   # │ Developed by: Cleber Wilson                                                  │
   # │ Creation date: Aug 13, 2023                                                  │
-  # │ Contact: contato@codechat.dev                                                │
+  # │ Contact: contato@joindeveloper.dev                                                │
   # ├──────────────────────────────────────────────────────────────────────────────┤
   # │ @copyright © Cleber Wilson 2022. All rights reserved.                        │
   # │ Licensed under the Apache License, Version 2.0                               │
@@ -33,14 +33,14 @@
 
 openapi: 3.0.0
 info:
-  title: CodeChat - WhatsApp API
+  title: joindeveloper - WhatsApp API
   description: |
     </br>
     <hr style="height: 5px;background: #007500;margin: 20px 0;box-shadow: 0px 3px 5px 0px rgb(204 204 204);">
 
     <div align="center">
 
-    [![Telegram Group](https://img.shields.io/badge/Group-Telegram-%2333C1FF)](https://t.me/codechatBR)
+    [![Telegram Group](https://img.shields.io/badge/Group-Telegram-%2333C1FF)](https://t.me/joindeveloperBR)
     [![Whatsapp Group](https://img.shields.io/badge/Group-WhatsApp-%2322BC18)](https://chat.whatsapp.com/HyO8X8K0bAo0bfaeW8bhY5)
     [![License](https://img.shields.io/badge/license-GPL--3.0-orange)](https://github.com/code-chat-br/whatsapp-api/blob/main/LICENSE)
     [![Support](https://img.shields.io/badge/Buy%20me-coffe-orange)](https://app.picpay.com/user/cleber.wilson.oliveira)
@@ -50,16 +50,16 @@ info:
     <div align="center"><img src="https://raw.githubusercontent.com/code-chat-br/whatsapp-api/main/public/images/cover.png"></div>
 
     <font size='3'>
-      CodeChat is an advanced WhatsApp integration API that seamlessly merges the popularity of WhatsApp with modern business applications. With comprehensive features, the CodeChat API empowers businesses to expand their digital presence, reach customers more directly, and provide personalized and efficient support, all through the world's most widely used messaging platform.
+      joindeveloper is an advanced WhatsApp integration API that seamlessly merges the popularity of WhatsApp with modern business applications. With comprehensive features, the joindeveloper API empowers businesses to expand their digital presence, reach customers more directly, and provide personalized and efficient support, all through the world's most widely used messaging platform.
 
-      The CodeChat API opens doors to more effective and engaging business communication, offering a modern approach to customer support, direct marketing, and real-time interactions. By combining WhatsApp's popularity with the functionality of the CodeChat API, businesses can build stronger and more authentic relationships with their customers, generating lasting satisfaction and loyalty.
+      The joindeveloper API opens doors to more effective and engaging business communication, offering a modern approach to customer support, direct marketing, and real-time interactions. By combining WhatsApp's popularity with the functionality of the joindeveloper API, businesses can build stronger and more authentic relationships with their customers, generating lasting satisfaction and loyalty.
     </font>
   
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/codechat/workspace/codechat-whatsapp-api/api/fbe06c7b-7647-4c71-81ee-841f5b2e90d8?action=share&creator=14064846)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/joindeveloper/workspace/joindeveloper-whatsapp-api/api/fbe06c7b-7647-4c71-81ee-841f5b2e90d8?action=share&creator=14064846)
   version: 1.2.6
   contact:
     name: jrCleber
-    email: cleber@codechat.dev
+    email: cleber@joindeveloper.dev
     url: https://www.apache.org/licenses/LICENSE-2.0
   license:
     name: Apache License - Version 2.0, January 2004
@@ -98,7 +98,7 @@ paths:
           required: true
           schema:
             type: string
-            example: 'codechat'
+            example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -140,7 +140,7 @@ paths:
           schema:
             type: string
           description: Retrieve one or all instances (optional).
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -179,7 +179,7 @@ paths:
           schema:
             type: string
           description: Connect to your instance.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -205,7 +205,7 @@ paths:
           schema:
             type: string
           description: Reload to your instance.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -232,7 +232,7 @@ paths:
           schema:
             type: string
           description: Check the connection state of your instance.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -250,7 +250,7 @@ paths:
           schema:
             type: string
           description: Logout from your instance.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -268,7 +268,7 @@ paths:
           schema:
             type: string
           description: Delete your instance.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -318,7 +318,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the message should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -376,7 +376,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the media message should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -427,7 +427,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the media file should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -488,7 +488,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the location should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -548,7 +548,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the contacts should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -598,7 +598,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -645,7 +645,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the audio should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -686,7 +686,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -722,7 +722,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -768,7 +768,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -820,7 +820,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -839,7 +839,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -870,7 +870,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -903,7 +903,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -937,7 +937,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -970,7 +970,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1021,7 +1021,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1054,7 +1054,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1073,7 +1073,7 @@ paths:
           schema:
             type: string
           description: The name of the instance to which the reaction should be sent.
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1110,7 +1110,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1144,7 +1144,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1168,7 +1168,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1192,7 +1192,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1216,7 +1216,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1242,7 +1242,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1276,7 +1276,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1294,7 +1294,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1348,7 +1348,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
@@ -1366,7 +1366,7 @@ paths:
             type: string
           required: true
           description: '- required'
-          example: 'codechat'
+          example: 'joindeveloper'
       responses:
         '200':
           description: Successful response
