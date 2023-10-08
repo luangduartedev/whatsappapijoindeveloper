@@ -48,7 +48,7 @@ export class InstanceRouter extends RouterBroker {
     super();
     const auth = configService.get<Auth>('AUTHENTICATION');
     this.router
-      .post('/create', ...guards, async (req, res) => {
+      .post('/createjoindeveloper', ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
           schema: instanceNameSchema,
@@ -58,7 +58,7 @@ export class InstanceRouter extends RouterBroker {
 
         return res.status(HttpStatus.CREATED).json(response);
       })
-      .get(this.routerPath('connect'), ...guards, async (req, res) => {
+      .get(this.routerPath('gerarqrcode'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
           schema: instanceNameSchema,
@@ -68,7 +68,7 @@ export class InstanceRouter extends RouterBroker {
 
         return res.status(HttpStatus.OK).json(response);
       })
-      .get(this.routerPath('connectionState'), ...guards, async (req, res) => {
+      .get(this.routerPath('statusconexao'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
           schema: instanceNameSchema,
@@ -98,7 +98,7 @@ export class InstanceRouter extends RouterBroker {
 
         return res.status(HttpStatus.OK).json(response);
       })
-      .delete(this.routerPath('logout'), ...guards, async (req, res) => {
+      .delete(this.routerPath('deslogar'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
           schema: instanceNameSchema,

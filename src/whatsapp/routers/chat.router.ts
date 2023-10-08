@@ -66,7 +66,7 @@ export class ChatRouter extends RouterBroker {
   constructor(...guards: RequestHandler[]) {
     super();
     this.router
-      .post(this.routerPath('whatsappNumbers'), ...guards, async (req, res) => {
+      .post(this.routerPath('verificarwpp'), ...guards, async (req, res) => {
         const response = await this.dataValidate<WhatsAppNumberDto>({
           request: req,
           schema: whatsappNumberSchema,
@@ -76,7 +76,7 @@ export class ChatRouter extends RouterBroker {
 
         return res.status(HttpStatus.CREATED).json(response);
       })
-      .put(this.routerPath('markMessageAsRead'), ...guards, async (req, res) => {
+      .put(this.routerPath('marcarmensagemcomolida'), ...guards, async (req, res) => {
         const response = await this.dataValidate<ReadMessageDto>({
           request: req,
           schema: readMessageSchema,
@@ -86,7 +86,7 @@ export class ChatRouter extends RouterBroker {
 
         return res.status(HttpStatus.CREATED).json(response);
       })
-      .put(this.routerPath('archiveChat'), ...guards, async (req, res) => {
+      .put(this.routerPath('arquivarconversa'), ...guards, async (req, res) => {
         const response = await this.dataValidate<ArchiveChatDto>({
           request: req,
           schema: archiveChatSchema,
@@ -97,7 +97,7 @@ export class ChatRouter extends RouterBroker {
         return res.status(HttpStatus.CREATED).json(response);
       })
       .delete(
-        this.routerPath('deleteMessageForEveryone'),
+        this.routerPath('deletarmensagemparatodos'),
         ...guards,
         async (req, res) => {
           const response = await this.dataValidate<DeleteMessage>({
@@ -110,7 +110,7 @@ export class ChatRouter extends RouterBroker {
           return res.status(HttpStatus.CREATED).json(response);
         },
       )
-      .post(this.routerPath('fetchProfilePictureUrl'), ...guards, async (req, res) => {
+      .post(this.routerPath('coletarurlfotoperfil'), ...guards, async (req, res) => {
         const response = await this.dataValidate<NumberDto>({
           request: req,
           schema: profilePictureSchema,
@@ -120,7 +120,7 @@ export class ChatRouter extends RouterBroker {
 
         return res.status(HttpStatus.OK).json(response);
       })
-      .post(this.routerPath('findContacts'), ...guards, async (req, res) => {
+      .post(this.routerPath('coletarcontatos'), ...guards, async (req, res) => {
         const response = await this.dataValidate<ContactQuery>({
           request: req,
           schema: contactValidateSchema,
@@ -130,7 +130,7 @@ export class ChatRouter extends RouterBroker {
 
         return res.status(HttpStatus.OK).json(response);
       })
-      .post(this.routerPath('getBase64FromMediaMessage'), ...guards, async (req, res) => {
+      .post(this.routerPath('coletarbase64mensagemarquivo'), ...guards, async (req, res) => {
         const response = await this.dataValidate<proto.IWebMessageInfo>({
           request: req,
           schema: null,
@@ -141,7 +141,7 @@ export class ChatRouter extends RouterBroker {
 
         return res.status(HttpStatus.CREATED).json(response);
       })
-      .post(this.routerPath('retrieverMediaMessage'), ...guards, async (req, res) => {
+      .post(this.routerPath('coletarbinariomensagemarquivo'), ...guards, async (req, res) => {
         const response = await this.dataValidate<proto.IWebMessageInfo>({
           request: req,
           schema: null,
@@ -163,7 +163,7 @@ export class ChatRouter extends RouterBroker {
 
         return readableStream.pipe(res);
       })
-      .post(this.routerPath('findMessages'), ...guards, async (req, res) => {
+      .post(this.routerPath('coletarmensagens'), ...guards, async (req, res) => {
         const response = await this.dataValidate<MessageQuery>({
           request: req,
           schema: messageValidateSchema,
@@ -173,7 +173,7 @@ export class ChatRouter extends RouterBroker {
 
         return res.status(HttpStatus.OK).json(response);
       })
-      .post(this.routerPath('findStatusMessage'), ...guards, async (req, res) => {
+      .post(this.routerPath('coletarstatusmensagem'), ...guards, async (req, res) => {
         const response = await this.dataValidate<MessageUpQuery>({
           request: req,
           schema: messageUpSchema,
@@ -183,7 +183,7 @@ export class ChatRouter extends RouterBroker {
 
         return res.status(HttpStatus.OK).json(response);
       })
-      .get(this.routerPath('findChats'), ...guards, async (req, res) => {
+      .get(this.routerPath('coletarconversas'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
           schema: null,

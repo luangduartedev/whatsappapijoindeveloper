@@ -69,7 +69,7 @@ export class MessageRouter extends RouterBroker {
     const uploadFile = multer({ preservePath: true });
 
     this.router
-      .post(this.routerPath('sendText'), ...guards, async (req, res) => {
+      .post(this.routerPath('enviartexto'), ...guards, async (req, res) => {
         const response = await this.dataValidate<SendTextDto>({
           request: req,
           schema: textMessageSchema,
@@ -79,7 +79,7 @@ export class MessageRouter extends RouterBroker {
 
         return res.status(HttpStatus.CREATED).json(response);
       })
-      .post(this.routerPath('sendMedia'), ...guards, async (req, res) => {
+      .post(this.routerPath('enviararquivo'), ...guards, async (req, res) => {
         const response = await this.dataValidate<SendMediaDto>({
           request: req,
           schema: mediaMessageSchema,
@@ -90,7 +90,7 @@ export class MessageRouter extends RouterBroker {
         return res.status(HttpStatus.CREATED).json(response);
       })
       .post(
-        this.routerPath('sendMediaFile'),
+        this.routerPath('enviararquivourl'),
         ...guards,
         uploadFile.single('attachment'),
         this.validateMedia,
@@ -105,7 +105,7 @@ export class MessageRouter extends RouterBroker {
           return res.status(HttpStatus.CREATED).json(response);
         },
       )
-      .post(this.routerPath('sendWhatsAppAudio'), ...guards, async (req, res) => {
+      .post(this.routerPath('enviaraudio'), ...guards, async (req, res) => {
         const response = await this.dataValidate<SendAudioDto>({
           request: req,
           schema: audioMessageSchema,
@@ -117,7 +117,7 @@ export class MessageRouter extends RouterBroker {
         return res.status(HttpStatus.CREATED).json(response);
       })
       .post(
-        this.routerPath('sendWhatsAppAudioFile'),
+        this.routerPath('enviaraudiourl'),
         ...guards,
         uploadFile.single('attachment'),
         this.validateMedia,
@@ -132,7 +132,7 @@ export class MessageRouter extends RouterBroker {
           return res.status(HttpStatus.CREATED).json(response);
         },
       )
-      .post(this.routerPath('sendLocation'), ...guards, async (req, res) => {
+      .post(this.routerPath('enviarlocalizacao'), ...guards, async (req, res) => {
         const response = await this.dataValidate<SendLocationDto>({
           request: req,
           schema: locationMessageSchema,
@@ -142,7 +142,7 @@ export class MessageRouter extends RouterBroker {
 
         return res.status(HttpStatus.CREATED).json(response);
       })
-      .post(this.routerPath('sendContact'), ...guards, async (req, res) => {
+      .post(this.routerPath('enviarcontato'), ...guards, async (req, res) => {
         const response = await this.dataValidate<SendContactDto>({
           request: req,
           schema: contactMessageSchema,
@@ -152,7 +152,7 @@ export class MessageRouter extends RouterBroker {
 
         return res.status(HttpStatus.CREATED).json(response);
       })
-      .post(this.routerPath('sendReaction'), ...guards, async (req, res) => {
+      .post(this.routerPath('enviarreacao'), ...guards, async (req, res) => {
         const response = await this.dataValidate<SendReactionDto>({
           request: req,
           schema: reactionMessageSchema,

@@ -55,7 +55,7 @@ export class GroupRouter extends RouterBroker {
   constructor(...guards: RequestHandler[]) {
     super();
     this.router
-      .post(this.routerPath('create'), ...guards, async (req, res) => {
+      .post(this.routerPath('criargrupo'), ...guards, async (req, res) => {
         const response = await this.dataValidate<CreateGroupDto>({
           request: req,
           schema: createGroupSchema,
@@ -65,7 +65,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.CREATED).json(response);
       })
-      .put(this.routerPath('updateGroupPicture'), ...guards, async (req, res) => {
+      .put(this.routerPath('atualizarfotogrupo'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupPictureDto>({
           request: req,
           schema: updateGroupPicture,
@@ -75,7 +75,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.CREATED).json(response);
       })
-      .get(this.routerPath('findGroupInfos'), ...guards, async (req, res) => {
+      .get(this.routerPath('infogrupo'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupJid>({
           request: req,
           schema: groupJidSchema,
@@ -85,7 +85,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.OK).json(response);
       })
-      .get(this.routerPath('participants'), ...guards, async (req, res) => {
+      .get(this.routerPath('coletarparticipantes'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupJid>({
           request: req,
           schema: groupJidSchema,
@@ -95,7 +95,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.OK).json(response);
       })
-      .get(this.routerPath('inviteCode'), ...guards, async (req, res) => {
+      .get(this.routerPath('gerarlinkdeconvite'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupJid>({
           request: req,
           schema: groupJidSchema,
@@ -106,7 +106,7 @@ export class GroupRouter extends RouterBroker {
         res.status(HttpStatus.OK).json(response);
       })
 
-      .put(this.routerPath('revokeInviteCode'), ...guards, async (req, res) => {
+      .put(this.routerPath('apagarlinkdeconvite'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupJid>({
           request: req,
           schema: groupJidSchema,
@@ -116,7 +116,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.CREATED).json(response);
       })
-      .put(this.routerPath('updateParticipant'), ...guards, async (req, res) => {
+      .put(this.routerPath('atualizarparticipante'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupUpdateParticipantDto>({
           request: req,
           schema: updateParticipantsSchema,
@@ -126,7 +126,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.CREATED).json(response);
       })
-      .delete(this.routerPath('leaveGroup'), ...guards, async (req, res) => {
+      .delete(this.routerPath('sairdogrupo'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupJid>({
           request: req,
           schema: {},

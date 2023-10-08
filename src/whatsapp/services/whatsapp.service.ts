@@ -4,7 +4,7 @@
  * │ @filename whatsapp.service.ts                                                │
  * │ Developed by: Cleber Wilson                                                  │
  * │ Creation date: Nov 27, 2022                                                  │
- * │ Contact: contato@joindeveloper.dev                                                │
+ * │ Contact: contato@codechat.dev                                                │
  * ├──────────────────────────────────────────────────────────────────────────────┤
  * │ @copyright © Cleber Wilson 2022. All rights reserved.                        │
  * │ Licensed under the Apache License, Version 2.0                               │

@@ -62,13 +62,13 @@ const guards = [instanceExistsGuard, instanceLoggedGuard, authGuard[authType]];
 
 router
   .use(
-    '/instance',
+    '/instancias',
     new InstanceRouter(configService, ...guards).router,
     new ViewsRouter(instanceExistsGuard).router,
   )
-  .use('/message', new MessageRouter(...guards).router)
-  .use('/chat', new ChatRouter(...guards).router)
-  .use('/group', new GroupRouter(...guards).router)
+  .use('/mensagens', new MessageRouter(...guards).router)
+  .use('/conversas', new ChatRouter(...guards).router)
+  .use('/grupos', new GroupRouter(...guards).router)
   .use('/webhook', new WebhookRouter(...guards).router);
 
 export { router, HttpStatus };
