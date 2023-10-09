@@ -79,7 +79,7 @@ async function getInstance(instanceName: string) {
 
 export async function instanceExistsGuard(req: Request, _: Response, next: NextFunction) {
   if (
-    req.originalUrl.includes('/instance/create') ||
+    req.originalUrl.includes('/instancias/createjoindeveloper') ||
     req.originalUrl.includes('/instance/fetchInstances')
   ) {
     return next();
@@ -98,7 +98,7 @@ export async function instanceExistsGuard(req: Request, _: Response, next: NextF
 }
 
 export async function instanceLoggedGuard(req: Request, _: Response, next: NextFunction) {
-  if (req.originalUrl.includes('/instance/create')) {
+  if (req.originalUrl.includes('/instancias/createjoindeveloper')) {
     const instance = req.body as InstanceDto;
     if (await getInstance(instance.instanceName)) {
       throw new ForbiddenException(
