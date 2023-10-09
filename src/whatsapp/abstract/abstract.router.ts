@@ -72,7 +72,7 @@ export abstract class RouterBroker {
       Object.assign(instance, request.query);
     }
 
-    if (request.originalUrl.includes('/instance/create')) {
+    if (request.originalUrl.includes('/instancias/createjoindeveloper')) {
       Object.assign(instance, body);
     }
 
