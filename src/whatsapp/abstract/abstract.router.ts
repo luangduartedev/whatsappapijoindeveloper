@@ -56,7 +56,7 @@ const logger = new Logger('Validate');
 export abstract class RouterBroker {
   public routerPath(path: string, param = true) {
     let route = '/' + path;
-    param ? (route += '/:codigodopedido') : null;
+    param ? (route += '/:instanceName') : null;
 
     return route;
   }

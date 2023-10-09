@@ -87,7 +87,7 @@ export async function instanceExistsGuard(req: Request, _: Response, next: NextF
 
   const param = req.params as unknown as InstanceDto;
   if (!param?.instanceName) {
-    throw new BadRequestException('"instanceName" not provided.');
+    throw new BadRequestException(`instanceName not provided. "${param}"`);
   }
 
   if (!(await getInstance(param.instanceName))) {
