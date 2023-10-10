@@ -33,5 +33,5 @@
  */
 
 export class InstanceDto {
-  instanceName: string;
+  codigodopedido: string;
 }

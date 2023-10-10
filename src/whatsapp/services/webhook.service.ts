@@ -42,14 +42,14 @@ export class WebhookService {
   constructor(private readonly waMonitor: WAMonitoringService) {}
 
   public create(instance: InstanceDto, data: WebhookDto) {
-    this.waMonitor.waInstances[instance.instanceName].setWebhook(data);
+    this.waMonitor.waInstances[instance.codigodopedido].setWebhook(data);
 
     return { webhook: { ...instance, webhook: data } };
   }
 
   public async find(instance: InstanceDto): Promise<WebhookDto> {
     try {
-      return await this.waMonitor.waInstances[instance.instanceName].findWebhook();
+      return await this.waMonitor.waInstances[instance.codigodopedido].findWebhook();
     } catch (error) {
       return { enabled: null, url: '' };
     }

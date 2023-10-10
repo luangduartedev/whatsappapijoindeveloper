@@ -47,11 +47,11 @@ export class RedisCache {
   }
 
   private statusConnection = false;
-  private instanceName: string;
+  private codigodopedido: string;
   private redisEnv: Redis;
 
   public set reference(reference: string) {
-    this.instanceName = reference;
+    this.codigodopedido = reference;
   }
 
   public async connect(redisEnv: Redis) {
@@ -76,14 +76,14 @@ export class RedisCache {
     if (key) {
       return !!(await this.instanceKeys()).find((i) => i === key);
     }
-    return !!(await this.instanceKeys()).find((i) => i === this.instanceName);
+    return !!(await this.instanceKeys()).find((i) => i === this.codigodopedido);
   }
 
   public async writeData(field: string, data: any) {
     try {
       const json = JSON.stringify(data, BufferJSON.replacer);
       return await this.client.hSet(
-        this.redisEnv.PREFIX_KEY + ':' + this.instanceName,
+        this.redisEnv.PREFIX_KEY + ':' + this.codigodopedido,
         field,
         json,
       );
@@ -95,7 +95,7 @@ export class RedisCache {
   public async readData(field: string) {
     try {
       const data = await this.client.hGet(
-        this.redisEnv.PREFIX_KEY + ':' + this.instanceName,
+        this.redisEnv.PREFIX_KEY + ':' + this.codigodopedido,
         field,
       );
       if (data) {
@@ -109,7 +109,7 @@ export class RedisCache {
   public async removeData(field: string) {
     try {
       return await this.client.hDel(
-        this.redisEnv.PREFIX_KEY + ':' + this.instanceName,
+        this.redisEnv.PREFIX_KEY + ':' + this.codigodopedido,
         field,
       );
     } catch (error) {
@@ -120,7 +120,7 @@ export class RedisCache {
   public async delAll(hash?: string) {
     try {
       return await this.client.del(
-        hash || this.redisEnv.PREFIX_KEY + ':' + this.instanceName,
+        hash || this.redisEnv.PREFIX_KEY + ':' + this.codigodopedido,
       );
     } catch (error) {
       this.logger.error(error);

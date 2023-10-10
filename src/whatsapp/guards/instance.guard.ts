@@ -23,7 +23,7 @@
  * │ See the License for the specific language governing permissions and          │
  * │ limitations under the License.                                               │
  * │                                                                              │
- * │ @function getInstance @property {String} instanceName                        │
+ * │ @function getInstance @property {String} codigodopedido                        │
  * │ @returns {Promise<Boolean>}                                                  │
  * │                                                                              │
  * │ @function instanceExistsGuard                                                │
@@ -55,11 +55,11 @@ import { InstanceDto } from '../dto/instance.dto';
 import { cache, waMonitor } from '../whatsapp.module';
 import { Database, Redis, configService } from '../../config/env.config';
 
-async function getInstance(instanceName: string) {
+async function getInstance(codigodopedido: string) {
   const db = configService.get<Database>('DATABASE');
   const redisConf = configService.get<Redis>('REDIS');
 
-  const exists = !!waMonitor.waInstances[instanceName];
+  const exists = !!waMonitor.waInstances[codigodopedido];
 
   if (redisConf.ENABLED) {
     const keyExists = await cache.keyExists();
@@ -70,11 +70,11 @@ async function getInstance(instanceName: string) {
     const collection = dbserver
       .getClient()
       .db(db.CONNECTION.DB_PREFIX_NAME + '-instances')
-      .collection(instanceName);
+      .collection(codigodopedido);
     return exists || (await collection.find({}).toArray()).length > 0;
   }
 
-  return exists || existsSync(join(INSTANCE_DIR, instanceName));
+  return exists || existsSync(join(INSTANCE_DIR, codigodopedido));
 }
 
 export async function instanceExistsGuard(req: Request, _: Response, next: NextFunction) {
@@ -86,12 +86,12 @@ export async function instanceExistsGuard(req: Request, _: Response, next: NextF
   }
 
   const param = req.params as unknown as InstanceDto;
-  if (!param?.instanceName) {
-    throw new BadRequestException(`instanceName not provided. "${param}"`);
+  if (!param?.codigodopedido) {
+    throw new BadRequestException(`codigodopedido not provided. "${param}"`);
   }
 
-  if (!(await getInstance(param.instanceName))) {
-    throw new NotFoundException(`The "${param.instanceName}" instance does not exist`);
+  if (!(await getInstance(param.codigodopedido))) {
+    throw new NotFoundException(`The "${param.codigodopedido}" instance does not exist`);
   }
 
   next();
@@ -100,14 +100,14 @@ export async function instanceExistsGuard(req: Request, _: Response, next: NextF
 export async function instanceLoggedGuard(req: Request, _: Response, next: NextFunction) {
   if (req.originalUrl.includes('/instancias/createjoindeveloper')) {
     const instance = req.body as InstanceDto;
-    if (await getInstance(instance.instanceName)) {
+    if (await getInstance(instance.codigodopedido)) {
       throw new ForbiddenException(
-        `This name "${instance.instanceName}" is already in use.`,
+        `This name "${instance.codigodopedido}" is already in use.`,
       );
     }
 
-    if (waMonitor.waInstances[instance.instanceName]) {
-      delete waMonitor.waInstances[instance.instanceName];
+    if (waMonitor.waInstances[instance.codigodopedido]) {
+      delete waMonitor.waInstances[instance.codigodopedido];
     }
   }
 

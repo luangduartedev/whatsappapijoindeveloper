@@ -64,7 +64,7 @@ export class InstanceController {
 
   private readonly logger = new Logger(InstanceController.name);
 
-  public async createInstance({ instanceName }: InstanceDto, req: Request) {
+  public async createInstance({ codigodopedido }: InstanceDto, req: Request) {
     try {
       const instance = new WAStartupService(
         this.configService,
@@ -72,21 +72,21 @@ export class InstanceController {
         this.repository,
         this.cache,
       );
-      instance.instanceName = instanceName;
-      this.waMonitor.waInstances[instance.instanceName] = instance;
-      this.waMonitor.delInstanceTime(instance.instanceName);
+      instance.codigodopedido = codigodopedido;
+      this.waMonitor.waInstances[instance.codigodopedido] = instance;
+      this.waMonitor.delInstanceTime(instance.codigodopedido);
 
       const hash = await this.authService.generateHash({
-        instanceName: instance.instanceName,
+        codigodopedido: instance.codigodopedido,
       });
 
-      req.session[instance.instanceName] = Buffer.from(JSON.stringify(hash)).toString(
+      req.session[instance.codigodopedido] = Buffer.from(JSON.stringify(hash)).toString(
         'base64',
       );
 
       return {
         instance: {
-          instanceName: instance.instanceName,
+          codigodopedido: instance.codigodopedido,
           status: 'created',
         },
         hash,
@@ -96,27 +96,27 @@ export class InstanceController {
     }
   }
 
-  public async reloadConnection({ instanceName }: InstanceDto) {
+  public async reloadConnection({ codigodopedido }: InstanceDto) {
     try {
-      const instance = this.waMonitor.waInstances[instanceName];
+      const instance = this.waMonitor.waInstances[codigodopedido];
       const state = instance?.connectionStatus?.state;
 
       switch (state) {
         case 'open':
           await instance.reloadConnection();
           await delay(2000);
-          return await this.connectionState({ instanceName });
+          return await this.connectionState({ codigodopedido });
         default:
-          return await this.connectionState({ instanceName });
+          return await this.connectionState({ codigodopedido });
       }
     } catch (error) {
       this.logger.error(error);
     }
   }
 
-  public async connectToWhatsapp({ instanceName }: InstanceDto) {
+  public async connectToWhatsapp({ codigodopedido }: InstanceDto) {
     try {
-      const instance = this.waMonitor.waInstances[instanceName];
+      const instance = this.waMonitor.waInstances[codigodopedido];
       const state = instance?.connectionStatus?.state;
 
       switch (state) {
@@ -127,29 +127,29 @@ export class InstanceController {
         case 'connecting':
           return instance.qrCode;
         default:
-          return await this.connectionState({ instanceName });
+          return await this.connectionState({ codigodopedido });
       }
     } catch (error) {
       this.logger.error(error);
     }
   }
 
-  public async connectionState({ instanceName }: InstanceDto) {
-    return this.waMonitor.waInstances[instanceName].connectionStatus;
+  public async connectionState({ codigodopedido }: InstanceDto) {
+    return this.waMonitor.waInstances[codigodopedido].connectionStatus;
   }
 
-  public async fetchInstances({ instanceName }: InstanceDto) {
-    if (instanceName) {
-      return this.waMonitor.instanceInfo(instanceName);
+  public async fetchInstances({ codigodopedido }: InstanceDto) {
+    if (codigodopedido) {
+      return this.waMonitor.instanceInfo(codigodopedido);
     }
 
     return this.waMonitor.instanceInfo();
   }
 
-  public async logout({ instanceName }: InstanceDto) {
+  public async logout({ codigodopedido }: InstanceDto) {
     try {
-      await this.waMonitor.waInstances[instanceName]?.client?.logout(
-        'Log out instance: ' + instanceName,
+      await this.waMonitor.waInstances[codigodopedido]?.client?.logout(
+        'Log out instance: ' + codigodopedido,
       );
       return { error: false, message: 'Instance logged out' };
     } catch (error) {
@@ -157,8 +157,8 @@ export class InstanceController {
     }
   }
 
-  public async deleteInstance({ instanceName }: InstanceDto) {
-    const stateConn = await this.connectionState({ instanceName });
+  public async deleteInstance({ codigodopedido }: InstanceDto) {
+    const stateConn = await this.connectionState({ codigodopedido });
     if (stateConn.state === 'open') {
       throw new BadRequestException([
         'Deletion failed',
@@ -166,7 +166,7 @@ export class InstanceController {
       ]);
     }
     try {
-      delete this.waMonitor.waInstances[instanceName];
+      delete this.waMonitor.waInstances[codigodopedido];
       return { error: false, message: 'Instance deleted' };
     } catch (error) {
       throw new BadRequestException(error.toString());
@@ -176,7 +176,7 @@ export class InstanceController {
   public async refreshToken(instance: InstanceDto, oldToken: OldToken, req: Request) {
     const token = await this.authService.refreshToken(oldToken);
 
-    req.session[instance.instanceName] = Buffer.from(JSON.stringify(token)).toString(
+    req.session[instance.codigodopedido] = Buffer.from(JSON.stringify(token)).toString(
       'base64',
     );
   }

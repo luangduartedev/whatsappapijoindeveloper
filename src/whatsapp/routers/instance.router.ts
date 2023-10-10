@@ -35,7 +35,7 @@
  */
 
 import { RequestHandler, Router } from 'express';
-import { instanceNameSchema, oldTokenSchema } from '../../validate/validate.schema';
+import { codigodopedidoSchema, oldTokenSchema } from '../../validate/validate.schema';
 import { InstanceDto } from '../dto/instance.dto';
 import { instanceController } from '../whatsapp.module';
 import { RouterBroker } from '../abstract/abstract.router';
@@ -51,7 +51,7 @@ export class InstanceRouter extends RouterBroker {
       .post('/createjoindeveloper', ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
-          schema: instanceNameSchema,
+          schema: codigodopedidoSchema,
           ClassRef: InstanceDto,
           execute: (instance) => instanceController.createInstance(instance, req),
         });
@@ -61,7 +61,7 @@ export class InstanceRouter extends RouterBroker {
       .get(this.routerPath('gerarqrcode'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
-          schema: instanceNameSchema,
+          schema: codigodopedidoSchema,
           ClassRef: InstanceDto,
           execute: (instance) => instanceController.connectToWhatsapp(instance),
         });
@@ -71,7 +71,7 @@ export class InstanceRouter extends RouterBroker {
       .get(this.routerPath('statusconexao'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
-          schema: instanceNameSchema,
+          schema: codigodopedidoSchema,
           ClassRef: InstanceDto,
           execute: (instance) => instanceController.connectionState(instance),
         });
@@ -91,7 +91,7 @@ export class InstanceRouter extends RouterBroker {
       .get(this.routerPath('reload'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
-          schema: instanceNameSchema,
+          schema: codigodopedidoSchema,
           ClassRef: InstanceDto,
           execute: (instance) => instanceController.reloadConnection(instance),
         });
@@ -101,7 +101,7 @@ export class InstanceRouter extends RouterBroker {
       .delete(this.routerPath('deslogar'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
-          schema: instanceNameSchema,
+          schema: codigodopedidoSchema,
           ClassRef: InstanceDto,
           execute: (instance) => instanceController.logout(instance),
         });
@@ -111,7 +111,7 @@ export class InstanceRouter extends RouterBroker {
       .delete(this.routerPath('delete'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
-          schema: instanceNameSchema,
+          schema: codigodopedidoSchema,
           ClassRef: InstanceDto,
           execute: (instance) => instanceController.deleteInstance(instance),
         });

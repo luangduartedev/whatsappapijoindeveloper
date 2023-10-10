@@ -24,19 +24,19 @@
                                     "method": "GET",
                                     "header": [],
                                     "url": {
-                                        "raw": "{{baseUrl}}/instance/qrcode/:instanceName",
+                                        "raw": "{{baseUrl}}/instance/qrcode/:codigodopedido",
                                         "host": [
                                             "{{baseUrl}}"
                                         ],
                                         "path": [
                                             "instance",
                                             "qrcode",
-                                            ":instanceName"
+                                            ":codigodopedido"
                                         ],
                                         "variable": [
                                             {
                                                 "id": "08774fc5-daa1-4636-8dde-7830968edf95",
-                                                "key": "instanceName",
+                                                "key": "codigodopedido",
                                                 "value": "{{instance}}",
                                                 "description": "- required"
                                             }
@@ -81,7 +81,7 @@
                             "header": [],
                             "body": {
                                 "mode": "raw",
-                                "raw": "{\r\n  \"instanceName\": \"{{instance}}\"\r\n}",
+                                "raw": "{\r\n  \"codigodopedido\": \"{{instance}}\"\r\n}",
                                 "options": {
                                     "raw": {
                                         "language": "json"
@@ -132,7 +132,7 @@
                             "method": "GET",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/instance/fetchInstances?instanceName={{instance}}",
+                                "raw": "{{baseUrl}}/instance/fetchInstances?codigodopedido={{instance}}",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
@@ -142,7 +142,7 @@
                                 ],
                                 "query": [
                                     {
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "Recupere uma ou todas as intâncias - optional"
                                     }
@@ -176,19 +176,19 @@
                             "method": "GET",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/instance/connect/:instanceName",
+                                "raw": "{{baseUrl}}/instance/connect/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "instance",
                                     "connect",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "5615cb74-36eb-4894-9768-78d319585766",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "Conecte-se à sua intância - required"
                                     }
@@ -208,19 +208,19 @@
                             "method": "GET",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/instance/connectionState/:instanceName",
+                                "raw": "{{baseUrl}}/instance/connectionState/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "instance",
                                     "connectionState",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "e76aebc2-e5f4-4858-ab60-d8053d312f41",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -240,19 +240,19 @@
                             "method": "DELETE",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/instance/logout/:instanceName",
+                                "raw": "{{baseUrl}}/instance/logout/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "instance",
                                     "logout",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "5782590a-3ba6-42c5-a11f-338eb4a70c95",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -272,19 +272,19 @@
                             "method": "DELETE",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/instance/delete/:instanceName",
+                                "raw": "{{baseUrl}}/instance/delete/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "instance",
                                     "delete",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "495550d4-2087-4e14-82ab-8a1e7b182c49",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -342,18 +342,18 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/message/sendText/:instanceName",
+                                "raw": "{{baseUrl}}/message/sendText/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "message",
                                     "sendText",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": ""
                                     }
                                 ]
@@ -381,19 +381,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/message/sendMedia/:instanceName",
+                                "raw": "{{baseUrl}}/message/sendMedia/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "message",
                                     "sendMedia",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "6059d2d7-7400-4227-a043-7c93f9826d35",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -454,19 +454,19 @@
                                 ]
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/message/sendMediaFile/:instanceName",
+                                "raw": "{{baseUrl}}/message/sendMediaFile/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "message",
                                     "sendMediaFile",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "3a9cb721-b513-46cb-885a-df4add11190c",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "Required"
                                     }
@@ -495,19 +495,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/message/sendLocation/:instanceName",
+                                "raw": "{{baseUrl}}/message/sendLocation/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "message",
                                     "sendLocation",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "0f1aa7f9-3a5b-4cb8-a6e3-4c4dc663a0c2",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -536,19 +536,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/message/sendContact/:instanceName",
+                                "raw": "{{baseUrl}}/message/sendContact/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "message",
                                     "sendContact",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "bfc03fb3-4831-44df-8306-d13d97a19c99",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -577,19 +577,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/message/sendReaction/:instanceName",
+                                "raw": "{{baseUrl}}/message/sendReaction/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "message",
                                     "sendReaction",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "64cf358e-ef37-40e7-be36-4b86acc00d72",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -618,19 +618,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/message/sendWhatsAppAudio/:instanceName",
+                                "raw": "{{baseUrl}}/message/sendWhatsAppAudio/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "message",
                                     "sendWhatsAppAudio",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "93a135e9-3e3e-4f6c-9fb7-b77f334c4b8f",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -673,19 +673,19 @@
                                 ]
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/message/sendWhatsAppAudioFile/:instanceName",
+                                "raw": "{{baseUrl}}/message/sendWhatsAppAudioFile/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "message",
                                     "sendWhatsAppAudioFile",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "8f893bc7-f86e-4362-9904-26a76d04aa00",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -721,19 +721,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/chat/whatsappNumbers/:instanceName",
+                                "raw": "{{baseUrl}}/chat/whatsappNumbers/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "chat",
                                     "whatsappNumbers",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "e6ad9dce-ab9d-4a16-93cd-38eb341c20be",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -762,19 +762,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/chat/markMessageAsRead/:instanceName",
+                                "raw": "{{baseUrl}}/chat/markMessageAsRead/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "chat",
                                     "markMessageAsRead",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "27f7b59c-54af-4c79-b44f-97977f13de2f",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -803,19 +803,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/chat/archiveChat/:instanceName",
+                                "raw": "{{baseUrl}}/chat/archiveChat/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "chat",
                                     "archiveChat",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "363a71db-3618-4712-9aeb-3d56f252275d",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -844,19 +844,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/chat/deleteMessageForEveryone/:instanceName",
+                                "raw": "{{baseUrl}}/chat/deleteMessageForEveryone/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "chat",
                                     "deleteMessageForEveryone",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "d5d20df3-6a3b-4673-9f4b-4cc536ee71f3",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -926,19 +926,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/chat/findContacts/:instanceName",
+                                "raw": "{{baseUrl}}/chat/findContacts/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "chat",
                                     "findContacts",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "4a6606d1-49af-453c-b70e-d37658d95b73",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -980,19 +980,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/chat/getBase64FromMediaMessage/:instanceName",
+                                "raw": "{{baseUrl}}/chat/getBase64FromMediaMessage/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "chat",
                                     "getBase64FromMediaMessage",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "7a0cafa6-9253-4698-a133-50d4238cb81c",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1021,19 +1021,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/chat/findMessages/:instanceName",
+                                "raw": "{{baseUrl}}/chat/findMessages/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "chat",
                                     "findMessages",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "fc2316f0-719f-4c7b-af61-736558266352",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1062,19 +1062,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/chat/findStatusMessage/:instanceName",
+                                "raw": "{{baseUrl}}/chat/findStatusMessage/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "chat",
                                     "findStatusMessage",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "75a896e6-ca9b-4c94-a7de-b97c492dafe5",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1142,19 +1142,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/group/create/:instanceName",
+                                "raw": "{{baseUrl}}/group/create/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "group",
                                     "create",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "1e7a0df5-6897-48ab-8b4e-40cdc985e466",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1183,14 +1183,14 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/group/updateGroupPicture/:instanceName?groupJid={{groupJid}}",
+                                "raw": "{{baseUrl}}/group/updateGroupPicture/:codigodopedido?groupJid={{groupJid}}",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "group",
                                     "updateGroupPicture",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "query": [
                                     {
@@ -1202,7 +1202,7 @@
                                 "variable": [
                                     {
                                         "id": "a0901308-1fdc-4a86-af29-92762530ba22",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1222,14 +1222,14 @@
                             "method": "GET",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/group/findGroupInfos/:instanceName?groupJid={{groupJid}}",
+                                "raw": "{{baseUrl}}/group/findGroupInfos/:codigodopedido?groupJid={{groupJid}}",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "group",
                                     "findGroupInfos",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "query": [
                                     {
@@ -1241,7 +1241,7 @@
                                 "variable": [
                                     {
                                         "id": "b64beb06-5192-4e6b-9b70-c0e5f7ce188d",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1261,14 +1261,14 @@
                             "method": "GET",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/group/participants/:instanceName?groupJid={{groupJid}}",
+                                "raw": "{{baseUrl}}/group/participants/:codigodopedido?groupJid={{groupJid}}",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "group",
                                     "participants",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "query": [
                                     {
@@ -1280,7 +1280,7 @@
                                 "variable": [
                                     {
                                         "id": "88405d8f-9ed9-4fea-8901-82ce771b94a0",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1300,14 +1300,14 @@
                             "method": "GET",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/group/inviteCode/:instanceName?groupJid={{groupJid}}",
+                                "raw": "{{baseUrl}}/group/inviteCode/:codigodopedido?groupJid={{groupJid}}",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "group",
                                     "inviteCode",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "query": [
                                     {
@@ -1319,7 +1319,7 @@
                                 "variable": [
                                     {
                                         "id": "77b5efb8-fea3-4d72-9c70-401f07e6b2f5",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1339,14 +1339,14 @@
                             "method": "PUT",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/group/revokeInviteCode/:instanceName?groupJid={{groupJid}}",
+                                "raw": "{{baseUrl}}/group/revokeInviteCode/:codigodopedido?groupJid={{groupJid}}",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "group",
                                     "revokeInviteCode",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "query": [
                                     {
@@ -1358,7 +1358,7 @@
                                 "variable": [
                                     {
                                         "id": "c1d58447-33cf-4e89-82c2-e128cfb4468a",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1387,14 +1387,14 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/group/updateParticipant/:instanceName",
+                                "raw": "{{baseUrl}}/group/updateParticipant/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "group",
                                     "updateParticipant",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "query": [
                                     {
@@ -1406,7 +1406,7 @@
                                 "variable": [
                                     {
                                         "id": "f1434fea-b3b2-4a3a-aef3-3e3aa8f599f0",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1426,14 +1426,14 @@
                             "method": "DELETE",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/group/leaveGroup/:instanceName",
+                                "raw": "{{baseUrl}}/group/leaveGroup/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "group",
                                     "leaveGroup",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "query": [
                                     {
@@ -1446,7 +1446,7 @@
                                 "variable": [
                                     {
                                         "id": "167ed039-b9a3-4344-b25e-27a83dd8920f",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1525,19 +1525,19 @@
                                 }
                             },
                             "url": {
-                                "raw": "{{baseUrl}}/webhook/set/:instanceName",
+                                "raw": "{{baseUrl}}/webhook/set/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "webhook",
                                     "set",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "69dbe158-aabb-479a-9526-b1e9ac478f14",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }
@@ -1557,19 +1557,19 @@
                             "method": "GET",
                             "header": [],
                             "url": {
-                                "raw": "{{baseUrl}}/webhook/find/:instanceName",
+                                "raw": "{{baseUrl}}/webhook/find/:codigodopedido",
                                 "host": [
                                     "{{baseUrl}}"
                                 ],
                                 "path": [
                                     "webhook",
                                     "find",
-                                    ":instanceName"
+                                    ":codigodopedido"
                                 ],
                                 "variable": [
                                     {
                                         "id": "89c16412-940e-41ca-ab9b-4255c30f166d",
-                                        "key": "instanceName",
+                                        "key": "codigodopedido",
                                         "value": "{{instance}}",
                                         "description": "- required"
                                     }

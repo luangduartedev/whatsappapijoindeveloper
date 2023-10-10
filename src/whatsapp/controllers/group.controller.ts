@@ -47,31 +47,31 @@ export class GroupController {
   constructor(private readonly waMonitor: WAMonitoringService) {}
 
   public async createGroup(instance: InstanceDto, create: CreateGroupDto) {
-    return await this.waMonitor.waInstances[instance.instanceName].createGroup(create);
+    return await this.waMonitor.waInstances[instance.codigodopedido].createGroup(create);
   }
 
   public async updateGroupPicture(instance: InstanceDto, update: GroupPictureDto) {
-    return await this.waMonitor.waInstances[instance.instanceName].updateGroupPicture(
+    return await this.waMonitor.waInstances[instance.codigodopedido].updateGroupPicture(
       update,
     );
   }
 
   public async findGroupInfo(instance: InstanceDto, groupJid: GroupJid) {
-    return await this.waMonitor.waInstances[instance.instanceName].findGroup(groupJid);
+    return await this.waMonitor.waInstances[instance.codigodopedido].findGroup(groupJid);
   }
 
   public async inviteCode(instance: InstanceDto, groupJid: GroupJid) {
-    return await this.waMonitor.waInstances[instance.instanceName].inviteCode(groupJid);
+    return await this.waMonitor.waInstances[instance.codigodopedido].inviteCode(groupJid);
   }
 
   public async revokeInviteCode(instance: InstanceDto, groupJid: GroupJid) {
-    return await this.waMonitor.waInstances[instance.instanceName].revokeInviteCode(
+    return await this.waMonitor.waInstances[instance.codigodopedido].revokeInviteCode(
       groupJid,
     );
   }
 
   public async findParticipants(instance: InstanceDto, groupJid: GroupJid) {
-    return await this.waMonitor.waInstances[instance.instanceName].findParticipants(
+    return await this.waMonitor.waInstances[instance.codigodopedido].findParticipants(
       groupJid,
     );
   }
@@ -80,12 +80,12 @@ export class GroupController {
     instance: InstanceDto,
     update: GroupUpdateParticipantDto,
   ) {
-    return await this.waMonitor.waInstances[instance.instanceName].updateGParticipant(
+    return await this.waMonitor.waInstances[instance.codigodopedido].updateGParticipant(
       update,
     );
   }
 
   public async leaveGroup(instance: InstanceDto, groupJid: GroupJid) {
-    return await this.waMonitor.waInstances[instance.instanceName].leaveGroup(groupJid);
+    return await this.waMonitor.waInstances[instance.codigodopedido].leaveGroup(groupJid);
   }
 }

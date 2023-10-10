@@ -51,7 +51,7 @@ import { WAMonitoringService } from './monitor.service';
 import { RepositoryBroker } from '../repository/repository.manager';
 
 export type JwtPayload = {
-  instanceName: string;
+  codigodopedido: string;
   apiName: string;
   jwt?: string;
   apikey?: string;
@@ -75,7 +75,7 @@ export class AuthService {
     const jwtOpts = this.configService.get<Auth>('AUTHENTICATION').JWT;
     const token = sign(
       {
-        instanceName: instance.instanceName,
+        codigodopedido: instance.codigodopedido,
         apiName,
         tokenId: v4(),
       },
@@ -83,7 +83,7 @@ export class AuthService {
       { expiresIn: jwtOpts.EXPIRIN_IN, encoding: 'utf8', subject: 'g-t' },
     );
 
-    const auth = await this.repository.auth.create({ jwt: token }, instance.instanceName);
+    const auth = await this.repository.auth.create({ jwt: token }, instance.codigodopedido);
 
     if (auth['error']) {
       this.logger.error({
@@ -99,7 +99,7 @@ export class AuthService {
   private async apikey(instance: InstanceDto) {
     const apikey = v4().toUpperCase();
 
-    const auth = await this.repository.auth.create({ apikey }, instance.instanceName);
+    const auth = await this.repository.auth.create({ apikey }, instance.codigodopedido);
 
     if (auth['error']) {
       this.logger.error({
@@ -126,25 +126,25 @@ export class AuthService {
       const jwtOpts = this.configService.get<Auth>('AUTHENTICATION').JWT;
       const decode = verify(oldToken, jwtOpts.SECRET, {
         ignoreExpiration: true,
-      }) as Pick<JwtPayload, 'apiName' | 'instanceName' | 'tokenId'>;
+      }) as Pick<JwtPayload, 'apiName' | 'codigodopedido' | 'tokenId'>;
 
-      const tokenStore = await this.repository.auth.find(decode.instanceName);
+      const tokenStore = await this.repository.auth.find(decode.codigodopedido);
 
       const decodeTokenStore = verify(tokenStore.jwt, jwtOpts.SECRET, {
         ignoreExpiration: true,
-      }) as Pick<JwtPayload, 'apiName' | 'instanceName' | 'tokenId'>;
+      }) as Pick<JwtPayload, 'apiName' | 'codigodopedido' | 'tokenId'>;
 
       if (decode.tokenId !== decodeTokenStore.tokenId) {
         throw new BadRequestException('Invalid "oldToken"');
       }
 
       const token = {
-        jwt: (await this.jwt({ instanceName: decode.instanceName })).jwt,
-        instanceName: decode.instanceName,
+        jwt: (await this.jwt({ codigodopedido: decode.codigodopedido })).jwt,
+        codigodopedido: decode.codigodopedido,
       };
 
       try {
-        const webhook = await this.repository.webhook.find(decode.instanceName);
+        const webhook = await this.repository.webhook.find(decode.codigodopedido);
         if (
           webhook?.enabled &&
           this.configService.get<Webhook>('WEBHOOK').EVENTS.NEW_JWT_TOKEN
@@ -154,10 +154,10 @@ export class AuthService {
             '',
             {
               event: 'new.jwt',
-              instance: decode.instanceName,
+              instance: decode.codigodopedido,
               data: token,
             },
-            { params: { owner: this.waMonitor.waInstances[decode.instanceName].wuid } },
+            { params: { owner: this.waMonitor.waInstances[decode.codigodopedido].wuid } },
           );
         }
       } catch (error) {

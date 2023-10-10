@@ -87,9 +87,9 @@ export class WAMonitoringService {
     }
   }
 
-  public async instanceInfo(instanceName?: string) {
-    if (instanceName && !this.waInstances[instanceName]) {
-      throw new NotFoundException(`Instance "${instanceName}" not found`);
+  public async instanceInfo(codigodopedido?: string) {
+    if (codigodopedido && !this.waInstances[codigodopedido]) {
+      throw new NotFoundException(`Instance "${codigodopedido}" not found`);
     }
 
     const instances: any[] = [];
@@ -99,7 +99,7 @@ export class WAMonitoringService {
         const auth = await this.repository.auth.find(key);
         instances.push({
           instance: {
-            instanceName: key,
+            codigodopedido: key,
             owner: value.wuid,
             profileName: (await value.getProfileName()) || 'not loaded',
             profilePictureUrl: value.profilePictureUrl,
@@ -147,22 +147,22 @@ export class WAMonitoringService {
     }, 3600 * 1000 * 2);
   }
 
-  private async cleaningUp(instanceName: string) {
+  private async cleaningUp(codigodopedido: string) {
     if (this.db.ENABLED && this.db.SAVE_DATA.INSTANCE) {
       await this.repository.dbServer.connect();
       const collections: any[] = await this.dbInstance.collections();
       if (collections.length > 0) {
-        await this.dbInstance.dropCollection(instanceName);
+        await this.dbInstance.dropCollection(codigodopedido);
       }
       return;
     }
 
     if (this.redis.ENABLED) {
-      this.cache.reference = instanceName;
+      this.cache.reference = codigodopedido;
       await this.cache.delAll();
       return;
     }
-    rmSync(join(INSTANCE_DIR, instanceName), { recursive: true, force: true });
+    rmSync(join(INSTANCE_DIR, codigodopedido), { recursive: true, force: true });
   }
 
   public async loadInstance() {
@@ -173,7 +173,7 @@ export class WAMonitoringService {
         this.repository,
         this.cache,
       );
-      instance.instanceName = name;
+      instance.codigodopedido = name;
       await instance.connectToWhatsapp();
       this.waInstances[name] = instance;
     };
@@ -219,26 +219,26 @@ export class WAMonitoringService {
   }
 
   private removeInstance() {
-    this.eventEmitter.on('remove.instance', async (instanceName: string) => {
+    this.eventEmitter.on('remove.instance', async (codigodopedido: string) => {
       try {
-        this.waInstances[instanceName] = undefined;
+        this.waInstances[codigodopedido] = undefined;
       } catch {}
 
       try {
-        this.cleaningUp(instanceName);
+        this.cleaningUp(codigodopedido);
       } finally {
-        this.logger.warn(`Instance "${instanceName}" - REMOVED`);
+        this.logger.warn(`Instance "${codigodopedido}" - REMOVED`);
       }
     });
   }
 
   private noConnection() {
-    this.eventEmitter.on('no.connection', async (instanceName) => {
+    this.eventEmitter.on('no.connection', async (codigodopedido) => {
       const del = this.configService.get<DelInstance>('DEL_INSTANCE');
       if(del) {
         try {
-          this.waInstances[instanceName] = undefined;
-          this.cleaningUp(instanceName);
+          this.waInstances[codigodopedido] = undefined;
+          this.cleaningUp(codigodopedido);
         } catch (error) {
           this.logger.error({
             localError: 'noConnection',
@@ -246,7 +246,7 @@ export class WAMonitoringService {
             error,
           });
         } finally {
-          this.logger.warn(`Instance "${instanceName}" - NOT CONNECTION`);
+          this.logger.warn(`Instance "${codigodopedido}" - NOT CONNECTION`);
         }
       }
     });

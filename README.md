@@ -139,7 +139,7 @@ Content-Type: application/json
 apikey: t8OOEeISKzpmc3jjcMqBWYSaJH2PIxns
 
 {
-  "instanceName": "joindeveloper"
+  "codigodopedido": "joindeveloper"
 }
 ```
 ##### cURL
@@ -149,7 +149,7 @@ curl --location --request POST 'http://localhost:8080/instance/create' \
 --header 'Content-Type: application/json' \
 --header 'apikey: t8OOEeISKzpmc3jjcMqBWYSaJH2PIxns' \
 --data-raw '{
-  "instanceName": "joindeveloper"
+  "codigodopedido": "joindeveloper"
 }'
 ```
 ### Response
@@ -157,7 +157,7 @@ curl --location --request POST 'http://localhost:8080/instance/create' \
 ```ts
 {
   "instance": {
-    "instanceName": "joindeveloper",
+    "codigodopedido": "joindeveloper",
     "status": "created"
   },
   "hash": {

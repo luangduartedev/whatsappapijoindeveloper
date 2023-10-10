@@ -88,7 +88,7 @@ async function jwtGuard(req: Request, _: Response, next: NextFunction) {
       ignoreExpiration: jwtOpts.EXPIRIN_IN === 0,
     }) as JwtPayload;
 
-    if (param.instanceName !== decode.instanceName || name !== decode.apiName) {
+    if (param.codigodopedido !== decode.codigodopedido || name !== decode.apiName) {
       throw new UnauthorizedException();
     }
 
@@ -123,7 +123,7 @@ async function apikey(req: Request, _: Response, next: NextFunction) {
 
   try {
     const param = req.params as unknown as InstanceDto;
-    const instanceKey = await repository.auth.find(param.instanceName);
+    const instanceKey = await repository.auth.find(param.codigodopedido);
     if (instanceKey.apikey === key) {
       return next();
     }

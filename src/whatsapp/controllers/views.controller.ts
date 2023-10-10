@@ -52,18 +52,18 @@ export class ViewsController {
   public async qrcode(request: Request, response: Response) {
     try {
       const param = request.params as unknown as InstanceDto;
-      const instance = this.waMonit.waInstances[param.instanceName];
+      const instance = this.waMonit.waInstances[param.codigodopedido];
       if (instance.connectionStatus.state === 'open') {
         throw new BadRequestException('The instance is already connected');
       }
 
       let auth: AuthRaw;
 
-      if (!request?.session?.[param.instanceName]) {
-        auth = await this.repository.auth.find(param.instanceName);
+      if (!request?.session?.[param.codigodopedido]) {
+        auth = await this.repository.auth.find(param.codigodopedido);
       } else {
         auth = JSON.parse(
-          Buffer.from(request.session[param.instanceName], 'base64').toString('utf8'),
+          Buffer.from(request.session[param.codigodopedido], 'base64').toString('utf8'),
         ) as AuthRaw;
       }
 

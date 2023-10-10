@@ -51,28 +51,28 @@ import { WAMonitoringService } from '../services/monitor.service';
 export class ChatController {
   constructor(private readonly waMonitor: WAMonitoringService) {}
 
-  public async whatsappNumber({ instanceName }: InstanceDto, data: WhatsAppNumberDto) {
-    return await this.waMonitor.waInstances[instanceName].whatsappNumber(data);
+  public async whatsappNumber({ codigodopedido }: InstanceDto, data: WhatsAppNumberDto) {
+    return await this.waMonitor.waInstances[codigodopedido].whatsappNumber(data);
   }
 
-  public async readMessage({ instanceName }: InstanceDto, data: ReadMessageDto) {
-    return await this.waMonitor.waInstances[instanceName].markMessageAsRead(data);
+  public async readMessage({ codigodopedido }: InstanceDto, data: ReadMessageDto) {
+    return await this.waMonitor.waInstances[codigodopedido].markMessageAsRead(data);
   }
 
-  public async archiveChat({ instanceName }: InstanceDto, data: ArchiveChatDto) {
-    return await this.waMonitor.waInstances[instanceName].archiveChat(data);
+  public async archiveChat({ codigodopedido }: InstanceDto, data: ArchiveChatDto) {
+    return await this.waMonitor.waInstances[codigodopedido].archiveChat(data);
   }
 
-  public async deleteMessage({ instanceName }: InstanceDto, data: DeleteMessage) {
-    return await this.waMonitor.waInstances[instanceName].deleteMessage(data);
+  public async deleteMessage({ codigodopedido }: InstanceDto, data: DeleteMessage) {
+    return await this.waMonitor.waInstances[codigodopedido].deleteMessage(data);
   }
 
-  public async fetchProfilePicture({ instanceName }: InstanceDto, data: NumberDto) {
-    return await this.waMonitor.waInstances[instanceName].profilePicture(data.number);
+  public async fetchProfilePicture({ codigodopedido }: InstanceDto, data: NumberDto) {
+    return await this.waMonitor.waInstances[codigodopedido].profilePicture(data.number);
   }
 
-  public async fetchContacts({ instanceName }: InstanceDto, query: ContactQuery) {
-    return await this.waMonitor.waInstances[instanceName].fetchContacts(query);
+  public async fetchContacts({ codigodopedido }: InstanceDto, query: ContactQuery) {
+    return await this.waMonitor.waInstances[codigodopedido].fetchContacts(query);
   }
 
   /**
@@ -80,28 +80,28 @@ export class ChatController {
    * @deprecated
    */
   public async getBase64FromMediaMessage(
-    { instanceName }: InstanceDto,
+    { codigodopedido }: InstanceDto,
     message: proto.IWebMessageInfo,
   ) {
-    return await this.waMonitor.waInstances[instanceName].getMediaMessage(message, true);
+    return await this.waMonitor.waInstances[codigodopedido].getMediaMessage(message, true);
   }
 
   public async getBinaryMediaFromMessage(
-    { instanceName }: InstanceDto,
+    { codigodopedido }: InstanceDto,
     message: proto.IWebMessageInfo,
   ) {
-    return await this.waMonitor.waInstances[instanceName].getMediaMessage(message);
+    return await this.waMonitor.waInstances[codigodopedido].getMediaMessage(message);
   }
 
-  public async fetchMessages({ instanceName }: InstanceDto, query: MessageQuery) {
-    return await this.waMonitor.waInstances[instanceName].fetchMessages(query);
+  public async fetchMessages({ codigodopedido }: InstanceDto, query: MessageQuery) {
+    return await this.waMonitor.waInstances[codigodopedido].fetchMessages(query);
   }
 
-  public async fetchStatusMessage({ instanceName }: InstanceDto, query: MessageUpQuery) {
-    return await this.waMonitor.waInstances[instanceName].fetchStatusMessage(query);
+  public async fetchStatusMessage({ codigodopedido }: InstanceDto, query: MessageUpQuery) {
+    return await this.waMonitor.waInstances[codigodopedido].fetchStatusMessage(query);
   }
 
-  public async fetchChats({ instanceName }: InstanceDto) {
-    return await this.waMonitor.waInstances[instanceName].fetchChats();
+  public async fetchChats({ codigodopedido }: InstanceDto) {
+    return await this.waMonitor.waInstances[codigodopedido].fetchChats();
   }
 }

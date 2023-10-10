@@ -23,7 +23,7 @@
  * │ See the License for the specific language governing permissions and          │
  * │ limitations under the License.                                               │
  * │                                                                              │
- * │ @constant isNotEmpty @constant instanceNameSchema                            │
+ * │ @constant isNotEmpty @constant codigodopedidoSchema                            │
  * │ @constant optionsSchema @constant numberDefinition                           │
  * │ @constant textMessageSchema @constant mediaMessageSchema                     │
  * │ @constant locationMessageSchema @constant mediaFileMessageSchema             │
@@ -67,13 +67,13 @@ const isNotEmpty = (...propertyNames: string[]): JSONSchema7 => {
 };
 
 // Instance Schema
-export const instanceNameSchema: JSONSchema7 = {
+export const codigodopedidoSchema: JSONSchema7 = {
   $id: v4(),
   type: 'object',
   properties: {
-    instanceName: { type: 'string' },
+    codigodopedido: { type: 'string' },
   },
-  ...isNotEmpty('instanceName'),
+  ...isNotEmpty('codigodopedido'),
 };
 
 export const oldTokenSchema: JSONSchema7 = {

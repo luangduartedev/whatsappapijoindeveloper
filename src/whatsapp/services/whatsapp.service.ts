@@ -159,7 +159,7 @@ export class WAStartupService {
   private readonly userDevicesCache: CacheStore = new NodeCache();
   private endSession = false;
 
-  public set instanceName(name: string) {
+  public set codigodopedido(name: string) {
     if (!name) {
       this.instance.name = v4();
       return;
@@ -171,7 +171,7 @@ export class WAStartupService {
     });
   }
 
-  public get instanceName() {
+  public get codigodopedido() {
     return this.instance.name;
   }
 
@@ -189,15 +189,15 @@ export class WAStartupService {
             this.configService.get<Database>('DATABASE').CONNECTION.DB_PREFIX_NAME +
               '-instances',
           )
-          .collection(this.instanceName);
+          .collection(this.codigodopedido);
         const data = await collection.findOne({ _id: 'creds' });
         if (data) {
           const creds = JSON.parse(JSON.stringify(data), BufferJSON.reviver);
           profileName = creds.me?.name || creds.me?.verifiedName;
         }
-      } else if (existsSync(join(INSTANCE_DIR, this.instanceName, 'creds.json'))) {
+      } else if (existsSync(join(INSTANCE_DIR, this.codigodopedido, 'creds.json'))) {
         const creds = JSON.parse(
-          readFileSync(join(INSTANCE_DIR, this.instanceName, 'creds.json'), {
+          readFileSync(join(INSTANCE_DIR, this.codigodopedido, 'creds.json'), {
             encoding: 'utf-8',
           }),
         );
@@ -219,18 +219,18 @@ export class WAStartupService {
   }
 
   private async loadWebhook() {
-    const data = await this.repository.webhook.find(this.instanceName);
+    const data = await this.repository.webhook.find(this.codigodopedido);
     this.localWebhook.url = data?.url;
     this.localWebhook.enabled = data?.enabled;
   }
 
   public async setWebhook(data: WebhookRaw) {
-    await this.repository.webhook.create(data, this.instanceName);
+    await this.repository.webhook.create(data, this.codigodopedido);
     Object.assign(this.localWebhook, data);
   }
 
   public async findWebhook() {
-    return await this.repository.webhook.find(this.instanceName);
+    return await this.repository.webhook.find(this.codigodopedido);
   }
 
   private async sendDataWebhook<T = any>(event: Events, data: T) {

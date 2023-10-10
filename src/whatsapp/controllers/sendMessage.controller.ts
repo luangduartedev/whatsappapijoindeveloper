@@ -52,11 +52,11 @@ import { WAMonitoringService } from '../services/monitor.service';
 export class SendMessageController {
   constructor(private readonly waMonitor: WAMonitoringService) {}
 
-  public async sendText({ instanceName }: InstanceDto, data: SendTextDto) {
-    return await this.waMonitor.waInstances[instanceName].textMessage(data);
+  public async sendText({ codigodopedido }: InstanceDto, data: SendTextDto) {
+    return await this.waMonitor.waInstances[codigodopedido].textMessage(data);
   }
 
-  public async sendMedia({ instanceName }: InstanceDto, data: SendMediaDto) {
+  public async sendMedia({ codigodopedido }: InstanceDto, data: SendMediaDto) {
     if (isBase64(data?.mediaMessage?.media)) {
       throw new BadRequestException('Owned media must be a url');
     }
@@ -64,12 +64,12 @@ export class SendMessageController {
       throw new BadRequestException('Enter the file name for the "document" type.');
     }
     if (isURL(data?.mediaMessage?.media as string)) {
-      return await this.waMonitor.waInstances[instanceName].mediaMessage(data);
+      return await this.waMonitor.waInstances[codigodopedido].mediaMessage(data);
     }
   }
 
   public async sendMediaFile(
-    { instanceName }: InstanceDto,
+    { codigodopedido }: InstanceDto,
     data: MediaFileDto,
     file: Express.Multer.File,
   ) {
@@ -78,20 +78,20 @@ export class SendMessageController {
     } else {
       data.delay = Number.parseInt(data?.delay as never);
     }
-    return await this.waMonitor.waInstances[instanceName].mediaFileMessage(data, file);
+    return await this.waMonitor.waInstances[codigodopedido].mediaFileMessage(data, file);
   }
 
-  public async sendWhatsAppAudio({ instanceName }: InstanceDto, data: SendAudioDto) {
+  public async sendWhatsAppAudio({ codigodopedido }: InstanceDto, data: SendAudioDto) {
     if (isBase64(data?.audioMessage.audio)) {
       throw new BadRequestException('Owned media must be a url');
     }
     if (isURL(data.audioMessage.audio) || isBase64(data.audioMessage.audio)) {
-      return await this.waMonitor.waInstances[instanceName].audioWhatsapp(data);
+      return await this.waMonitor.waInstances[codigodopedido].audioWhatsapp(data);
     }
   }
 
   public async sendWhatsAppAudioFile(
-    { instanceName }: InstanceDto,
+    { codigodopedido }: InstanceDto,
     data: AudioMessageFileDto,
     file: Express.Multer.File,
   ) {
@@ -100,21 +100,21 @@ export class SendMessageController {
     } else {
       data.delay = Number.parseInt(data?.delay as never);
     }
-    return await this.waMonitor.waInstances[instanceName].audioWhatsAppFile(data, file);
+    return await this.waMonitor.waInstances[codigodopedido].audioWhatsAppFile(data, file);
   }
 
-  public async sendLocation({ instanceName }: InstanceDto, data: SendLocationDto) {
-    return await this.waMonitor.waInstances[instanceName].locationMessage(data);
+  public async sendLocation({ codigodopedido }: InstanceDto, data: SendLocationDto) {
+    return await this.waMonitor.waInstances[codigodopedido].locationMessage(data);
   }
 
-  public async sendContact({ instanceName }: InstanceDto, data: SendContactDto) {
-    return await this.waMonitor.waInstances[instanceName].contactMessage(data);
+  public async sendContact({ codigodopedido }: InstanceDto, data: SendContactDto) {
+    return await this.waMonitor.waInstances[codigodopedido].contactMessage(data);
   }
 
-  public async sendReaction({ instanceName }: InstanceDto, data: SendReactionDto) {
+  public async sendReaction({ codigodopedido }: InstanceDto, data: SendReactionDto) {
     if (!data.reactionMessage.reaction.match(/[^\(\)\w\sà-ú"-\+]+/)) {
       throw new BadRequestException('"reaction" must be an emoji');
     }
-    return await this.waMonitor.waInstances[instanceName].reactionMessage(data);
+    return await this.waMonitor.waInstances[codigodopedido].reactionMessage(data);
   }
 }
