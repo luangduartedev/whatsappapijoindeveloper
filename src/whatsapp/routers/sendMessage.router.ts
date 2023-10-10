@@ -79,7 +79,7 @@ export class MessageRouter extends RouterBroker {
 
         return res.status(HttpStatus.CREATED).json(response);
       })
-      .post(this.routerPath('enviararquivo'), ...guards, async (req, res) => {
+      .post(this.routerPath('enviararquivourl'), ...guards, async (req, res) => {
         const response = await this.dataValidate<SendMediaDto>({
           request: req,
           schema: mediaMessageSchema,
@@ -90,7 +90,7 @@ export class MessageRouter extends RouterBroker {
         return res.status(HttpStatus.CREATED).json(response);
       })
       .post(
-        this.routerPath('enviararquivourl'),
+        this.routerPath('enviararquivo'),
         ...guards,
         uploadFile.single('attachment'),
         this.validateMedia,
