@@ -62,7 +62,7 @@ async function jwtGuard(req: Request, _: Response, next: NextFunction) {
 
   if (
     (req.originalUrl.includes('/instancias/createjoindeveloper') ||
-      req.originalUrl.includes('/instance/fetchInstances')) &&
+      req.originalUrl.includes('/instancias/fetchInstances')) &&
     !key
   ) {
     throw new ForbiddenException(
@@ -112,7 +112,7 @@ async function apikey(req: Request, _: Response, next: NextFunction) {
 
   if (
     (req.originalUrl.includes('/instancias/createjoindeveloper') ||
-      req.originalUrl.includes('/instance/fetchInstances')) &&
+      req.originalUrl.includes('/instancias/fetchInstances')) &&
     !key
   ) {
     throw new ForbiddenException(
