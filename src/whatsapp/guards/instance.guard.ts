@@ -80,7 +80,7 @@ async function getInstance(instanceName: string) {
 export async function instanceExistsGuard(req: Request, _: Response, next: NextFunction) {
   if (
     req.originalUrl.includes('/instancias/createjoindeveloper') ||
-    req.originalUrl.includes('/instance/fetchInstances')
+    req.originalUrl.includes('/instancias/fetchInstances')
   ) {
     return next();
   }
