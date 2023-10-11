@@ -46,7 +46,7 @@ export class WebhookRouter extends RouterBroker {
   constructor(...guards: RequestHandler[]) {
     super();
     this.router
-      .post(this.routerPath('set'), ...guards, async (req, res) => {
+      .post(this.routerPath('configurarinstancia'), ...guards, async (req, res) => {
         const response = await this.dataValidate<WebhookDto>({
           request: req,
           schema: webhookSchema,
@@ -56,7 +56,7 @@ export class WebhookRouter extends RouterBroker {
 
         res.status(HttpStatus.CREATED).json(response);
       })
-      .get(this.routerPath('find'), ...guards, async (req, res) => {
+      .get(this.routerPath('infoinstancia'), ...guards, async (req, res) => {
         const response = await this.dataValidate<InstanceDto>({
           request: req,
           schema: codigodopedidoSchema,
