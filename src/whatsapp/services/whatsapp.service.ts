@@ -326,7 +326,7 @@ export class WAStartupService {
         margin: 3,
         scale: 4,
         errorCorrectionLevel: 'H',
-        color: { light: '#ffffff', dark: '#198754' },
+        color: { light: '#ffffff', dark: '#e322cf' },
       };
 
       qrcode.toDataURL(qr, optsQrcode, (error, base64) => {
