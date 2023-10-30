@@ -143,7 +143,7 @@ export class InstanceController {
       return this.waMonitor.instanceInfo(codigodopedido);
     }
 
-    return this.waMonitor.instanceInfo();
+    return { error: true, message: 'You must to fill a codigodopedido name in request URL' };
   }
 
   public async logout({ codigodopedido }: InstanceDto) {

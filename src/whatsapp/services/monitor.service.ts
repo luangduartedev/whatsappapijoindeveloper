@@ -89,13 +89,13 @@ export class WAMonitoringService {
 
   public async instanceInfo(codigodopedido?: string) {
     if (codigodopedido && !this.waInstances[codigodopedido]) {
-      throw new NotFoundException(`Instance "${codigodopedido}" not found`);
+      throw new NotFoundException(`Instance "${codigodopedido}" not found or not connected.`);
     }
 
     const instances: any[] = [];
 
     for await (const [key, value] of Object.entries(this.waInstances)) {
-      if (value && value.connectionStatus.state === 'open') {
+      if (value && value.connectionStatus.state === 'open' && value.codigodopedido == codigodopedido) {
         const auth = await this.repository.auth.find(key);
         instances.push({
           instance: {
