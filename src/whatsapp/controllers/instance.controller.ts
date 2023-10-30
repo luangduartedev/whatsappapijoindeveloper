@@ -151,6 +151,10 @@ export class InstanceController {
       await this.waMonitor.waInstances[codigodopedido]?.client?.logout(
         'Log out instance: ' + codigodopedido,
       );
+      var instanceObject = new InstanceDto();
+      instanceObject.codigodopedido = codigodopedido;
+
+      await this.createInstance(instanceObject, null);
       return { error: false, message: 'Instance logged out' };
     } catch (error) {
       throw new InternalServerErrorException(error.toString());

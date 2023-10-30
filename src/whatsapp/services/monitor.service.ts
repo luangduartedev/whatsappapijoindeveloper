@@ -37,7 +37,7 @@
  * └──────────────────────────────────────────────────────────────────────────────┘
  */
 
-import { opendirSync, readdirSync, rmSync } from 'fs';
+import { opendirSync, readdirSync, rmSync, rmdirSync } from 'fs';
 import { WAStartupService } from './whatsapp.service';
 import { INSTANCE_DIR } from '../../config/path.config';
 import EventEmitter2 from 'eventemitter2';
@@ -162,6 +162,7 @@ export class WAMonitoringService {
       await this.cache.delAll();
       return;
     }
+    rmdirSync(join(INSTANCE_DIR, codigodopedido), { recursive: true });
     rmSync(join(INSTANCE_DIR, codigodopedido), { recursive: true, force: true });
   }
 
