@@ -138,7 +138,7 @@ export class InstanceController {
     return this.waMonitor.waInstances[codigodopedido].connectionStatus;
   }
 
-  public async fetchInstances({ codigodopedido }: InstanceDto) {
+  public async buscarInstancia({ codigodopedido }: InstanceDto) {
     if (codigodopedido) {
       return this.waMonitor.instanceInfo(codigodopedido);
     }
