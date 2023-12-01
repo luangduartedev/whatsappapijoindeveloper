@@ -51,14 +51,14 @@ export class WebhookRepository extends Repository {
 
   public async create(data: WebhookRaw, instance: string): Promise<IInsert> {
     try {
-      if (this.dbSettings.ENABLED) {
-        const insert = await this.webhookModel.replaceOne(
-          { _id: instance },
-          { ...data },
-          { upsert: true },
-        );
-        return { insertCount: insert.modifiedCount };
-      }
+      // if (this.dbSettings.ENABLED) {
+      //   const insert = await this.webhookModel.replaceOne(
+      //     { _id: instance },
+      //     { ...data },
+      //     { upsert: true },
+      //   );
+      //   return { insertCount: insert.modifiedCount };
+      // }
 
       this.writeStore<WebhookRaw>({
         path: join(this.storePath, 'webhook'),
@@ -74,15 +74,10 @@ export class WebhookRepository extends Repository {
 
   public async find(instance: string): Promise<WebhookRaw> {
     try {
-      if (this.dbSettings.ENABLED) {
-        return await this.webhookModel.findOne({ _id: instance });
-      }
+      //if (this.dbSettings.ENABLED) {
+      //  return await this.webhookModel.findOne({ _id: instance });
+     // }
 
-      return JSON.parse(
-        readFileSync(join(this.storePath, 'webhook', instance + '.json'), {
-          encoding: 'utf-8',
-        }),
-      ) as WebhookRaw;
     } catch (error) {
       return {};
     }

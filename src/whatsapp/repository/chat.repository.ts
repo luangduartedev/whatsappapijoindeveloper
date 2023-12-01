@@ -59,10 +59,10 @@ export class ChatRepository extends Repository {
     }
 
     try {
-      if (this.dbSettings.ENABLED && saveDb) {
-        const insert = await this.chatModel.insertMany([...data]);
-        return { insertCount: insert.length };
-      }
+      //if (this.dbSettings.ENABLED && saveDb) {
+      //  const insert = await this.chatModel.insertMany([...data]);
+      //  return { insertCount: insert.length };
+      //}
 
       data.forEach((chat) => {
         this.writeStore<ChatRaw>({
@@ -82,9 +82,9 @@ export class ChatRepository extends Repository {
 
   public async find(query: ChatQuery): Promise<ChatRaw[]> {
     try {
-      if (this.dbSettings.ENABLED) {
-        return await this.chatModel.find({ owner: query.where.owner });
-      }
+      // if (this.dbSettings.ENABLED) {
+      //   return await this.chatModel.find({ owner: query.where.owner });
+      // }
 
       const chats: ChatRaw[] = [];
       const openDir = opendirSync(join(this.storePath, 'chats', query.where.owner));
@@ -109,9 +109,9 @@ export class ChatRepository extends Repository {
 
   public async delete(query: ChatQuery) {
     try {
-      if (this.dbSettings.ENABLED) {
-        return await this.chatModel.deleteOne({ ...query.where });
-      }
+      // if (this.dbSettings.ENABLED) {
+      //   return await this.chatModel.deleteOne({ ...query.where });
+      // }
 
       rmSync(join(this.storePath, 'chats', query.where.owner, query.where.id + '.josn'), {
         force: true,

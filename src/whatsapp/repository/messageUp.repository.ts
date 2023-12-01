@@ -60,10 +60,10 @@ export class MessageUpRepository extends Repository {
     }
 
     try {
-      if (this.dbSettings.ENABLED && saveDb) {
-        const insert = await this.messageUpModel.insertMany([...data]);
-        return { insertCount: insert.length };
-      }
+      //if (this.dbSettings.ENABLED && saveDb) {
+      //  const insert = await this.messageUpModel.insertMany([...data]);
+      //  return { insertCount: insert.length };
+      //}
 
       data.forEach((update) => {
         this.writeStore<MessageUpdateRaw>({
@@ -79,12 +79,12 @@ export class MessageUpRepository extends Repository {
 
   public async find(query: MessageUpQuery) {
     try {
-      if (this.dbSettings.ENABLED) {
-        return await this.messageUpModel
-          .find({ ...query.where })
-          .sort({ datetime: -1 })
-          .limit(query?.limit ?? 0);
-      }
+     // if (this.dbSettings.ENABLED) {
+     //   return await this.messageUpModel
+     //     .find({ ...query.where })
+     //     .sort({ datetime: -1 })
+     //     .limit(query?.limit ?? 0);
+     // }
 
       const messageUpdate: MessageUpdateRaw[] = [];
       if (query?.where?.id) {
