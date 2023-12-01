@@ -59,10 +59,10 @@ export class ContactRepository extends Repository {
     }
 
     try {
-      if (this.dbSettings.ENABLED && saveDb) {
-        const insert = await this.contactModel.insertMany([...data]);
-        return { insertCount: insert.length };
-      }
+      // if (this.dbSettings.ENABLED && saveDb) {
+      //   const insert = await this.contactModel.insertMany([...data]);
+      //   return { insertCount: insert.length };
+      // }
 
       data.forEach((contact) => {
         this.writeStore({
@@ -82,9 +82,9 @@ export class ContactRepository extends Repository {
 
   public async find(query: ContactQuery): Promise<ContactRaw[]> {
     try {
-      if (this.dbSettings.ENABLED) {
-        return await this.contactModel.find({ ...query.where });
-      }
+      // if (this.dbSettings.ENABLED) {
+      //   return await this.contactModel.find({ ...query.where });
+      // }
       const contacts: ContactRaw[] = [];
       if (query?.where?.id) {
         contacts.push(

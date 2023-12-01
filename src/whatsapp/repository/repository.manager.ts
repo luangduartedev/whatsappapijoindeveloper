@@ -75,7 +75,7 @@ export class RepositoryBroker {
   }
 
   private __init_repo_without_db__() {
-    if (!this.configService.get<Database>('DATABASE').ENABLED) {
+    // if (!this.configService.get<Database>('DATABASE').ENABLED) {
       const storePath = join(process.cwd(), 'store');
       const paths = [
         join(storePath, 'auth', this.configService.get<Auth>('AUTHENTICATION').TYPE),
@@ -92,6 +92,6 @@ export class RepositoryBroker {
         }
         execSync(`mkdir -p ${path}`);
       }
-    }
+    // }
   }
 }

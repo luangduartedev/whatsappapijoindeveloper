@@ -60,10 +60,10 @@ export class MessageRepository extends Repository {
     }
 
     try {
-      if (this.dbSettings.ENABLED && saveDb) {
-        const insert = await this.messageModel.insertMany([...data]);
-        return { insertCount: insert.length };
-      }
+      // if (this.dbSettings.ENABLED && saveDb) {
+      //   const insert = await this.messageModel.insertMany([...data]);
+      //   return { insertCount: insert.length };
+      // }
 
       if (saveDb) {
         data.forEach((msg) =>
@@ -88,18 +88,18 @@ export class MessageRepository extends Repository {
 
   public async find(query: MessageQuery) {
     try {
-      if (this.dbSettings.ENABLED) {
-        if (query?.where?.key) {
-          for (const [k, v] of Object.entries(query.where.key)) {
-            query.where['key.' + k] = v;
-          }
-          delete query?.where?.key;
-        }
-        return await this.messageModel
-          .find({ ...query.where })
-          .sort({ messageTimestamp: -1 })
-          .limit(query?.limit ?? 0);
-      }
+      // if (this.dbSettings.ENABLED) {
+      //   if (query?.where?.key) {
+      //     for (const [k, v] of Object.entries(query.where.key)) {
+      //       query.where['key.' + k] = v;
+      //     }
+      //     delete query?.where?.key;
+      //   }
+      //   return await this.messageModel
+      //     .find({ ...query.where })
+      //     .sort({ messageTimestamp: -1 })
+      //     .limit(query?.limit ?? 0);
+      // }
 
       const messages: MessageRaw[] = [];
       if (query?.where?.key?.id) {
