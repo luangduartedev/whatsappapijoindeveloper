@@ -65,7 +65,7 @@ export class MessageRepository extends Repository {
       //  return { insertCount: insert.length };
      // }
 
-      if (saveDb) {
+      // if (saveDb) {
         data.forEach((msg) =>
           this.writeStore<MessageRaw>({
             path: join(this.storePath, 'messages', msg.owner),
@@ -75,9 +75,6 @@ export class MessageRepository extends Repository {
         );
 
         return { insertCount: data.length };
-      }
-
-      return { insertCount: 0 };
     } catch (error) {
       console.log('ERROR: ', error);
       return error;
